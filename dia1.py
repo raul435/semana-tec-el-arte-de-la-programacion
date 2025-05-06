@@ -16,7 +16,7 @@ placa = None
 for c in contornos:
     peri = cv2.arcLength(c, True)
     approx = cv2.approxPolyDP(c, 0.018 * peri, True)
-    if len(approx) == 4:  # Forma rectangular
+    if len(approx) == 4: 
         placa = approx
         x, y, w, h = cv2.boundingRect(placa)
         roi = gris[y:y + h, x:x + w]
