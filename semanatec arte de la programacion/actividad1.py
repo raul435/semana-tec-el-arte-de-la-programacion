@@ -4,9 +4,6 @@ import numpy as np
 
 # Cargar la imagen
 imagen = cv2.imread('/Users/joseraul/Library/Mobile Documents/com~apple~CloudDocs/escuela/semanatec arte de la programacion/placa_4.jpg')
-if imagen is None:
-    print("Error: No se pudo cargar la imagen. Verifica la ruta del archivo.")
-    exit()
 
 # Convertir a escala de grises
 gris = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
@@ -26,7 +23,7 @@ print(f"Contornos detectados: {len(contornos)}")
 placa = None
 roi = None
 
-# Buscar un contorno con forma de rectángulo (aproximación de 4 lados)
+# Buscar un contorno con forma de rectángulo
 for c in contornos:
     peri = cv2.arcLength(c, True)
     approx = cv2.approxPolyDP(c, 0.018 * peri, True)
